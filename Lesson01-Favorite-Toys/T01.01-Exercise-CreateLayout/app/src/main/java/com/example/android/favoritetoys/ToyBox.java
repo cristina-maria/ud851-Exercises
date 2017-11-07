@@ -26,7 +26,6 @@ public final class ToyBox {
     public static String[] getToyNames() {
         return new String[] {
                 "Red Toy Wagon",
-                "Chemistry Set",
                 "Yo-Yo",
                 "Pop-Up Book",
                 "Generic Uncopyrighted Mouse",
