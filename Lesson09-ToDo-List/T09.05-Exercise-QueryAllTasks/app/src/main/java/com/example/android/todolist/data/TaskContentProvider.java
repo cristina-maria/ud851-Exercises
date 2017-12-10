@@ -104,6 +104,7 @@ public class TaskContentProvider extends ContentProvider {
                 break;
             // Set the value for the returnedUri and write the default case for unknown URI's
             // Default case throws an UnsupportedOperationException
+
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
@@ -133,6 +134,16 @@ public class TaskContentProvider extends ContentProvider {
             case TASKS:
                 returnCursor = db.query(TABLE_NAME, projection,
                         selection, selectionArgs, null, null, sortOrder);
+                break;
+            case TASK_WITH_ID:
+
+                String id = uri.getPathSegments().get(1);
+                String mSelection = "id=?";
+                String[] mSelectionArgs = new String[]{id};
+
+                returnCursor = db.query(TABLE_NAME, projection,
+                        mSelection, mSelectionArgs, null, null, sortOrder);
+
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri " + uri);
