@@ -138,7 +138,7 @@ public class TaskContentProvider extends ContentProvider {
             case TASK_WITH_ID:
 
                 String id = uri.getPathSegments().get(1);
-                String mSelection = "id=?";
+                String mSelection = "_id=?";
                 String[] mSelectionArgs = new String[]{id};
 
                 returnCursor = db.query(TABLE_NAME, projection,
